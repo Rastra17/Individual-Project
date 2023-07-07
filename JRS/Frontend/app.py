@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle
+# import pickle
 
 dfPickle = open("../Backend/df.pkl", 'rb')
 similarityPickle = open("../Backend/similarity.pkl", 'rb')
@@ -11,7 +11,7 @@ similarity = pd.read_pickle(similarityPickle)
 def recommendation(title):
     placeIndex = df[df['Title'] == title].index[0]
     placeIndex = df.index.get_loc(placeIndex)
-    distances = sorted(list(enumerate(similarity[placeIndex])),key=lambda x:x[1], reverse=False)[1:20]
+    distances = sorted(list(enumerate(similarity[placeIndex])),key=lambda x: x[1], reverse=False)[1:20]
     
     jobs = []
     for i in distances:
