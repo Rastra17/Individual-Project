@@ -20,8 +20,13 @@ def recommendation(title):
 
 # Web App
 st.title('Job Recommendation System')
-title = st.selectbox('search job', df['Title'])
+title = st.selectbox('Job Titles', df['Title'])
 jobs = recommendation(title)
 
 if jobs:
-    st.write(jobs)
+    # jobs_str = '\n'.join(jobs)
+    # st.write(jobs_str)
+    st.text("Jobs List View:")
+    st.text('\n'.join(jobs))
+else:
+    st.text("No Jobs Available for the given Title!")
